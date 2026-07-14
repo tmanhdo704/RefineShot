@@ -1,0 +1,62 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: refineshot_mongo
+    restart: unless-stopped
+    ports:
+      - "${MONGO_PORT:-27017}:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: .
+      dockerfile: app/backend/Dockerfile
+    container_name: refineshot_backend
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: ${MONGODB_URI:-mongodb://mongo:27017}
+      MONGODB_DB: ${MONGODB_DB:-refineshot}
+      STORAGE_DIR: ${STORAGE_DIR:-/app/storage}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-300}
+      MAX_DURATION_SEC: ${MAX_DURATION_SEC:-600}
+      JOB_TTL_HOURS: ${JOB_TTL_HOURS:-24}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY:-}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET:-}
+      CLOUDINARY_FOLDER: ${CLOUDINARY_FOLDER:-refineshot}
+      REFINESHOT_MODEL_PATH: ${REFINESHOT_MODEL_PATH:-/app/models/refineshot_v8_final.pth}
+      REFINESHOT_MODELS_DIR: ${REFINESHOT_MODELS_DIR:-/app/models}
+      REFINESHOT_DEVICE: ${REFINESHOT_DEVICE:-cpu}
+      REFINESHOT_USE_BASELINE: ${REFINESHOT_USE_BASELINE:-false}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - ./app/backend/storage:/app/storage
+      - ./models/checkpoints:/app/models:ro
+      - ./app/backend:/app/web/backend
+      - ./src:/app/src
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: .
+      dockerfile: app/frontend/Dockerfile
+    container_name: refineshot_frontend
+    restart: unless-stopped
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./app/frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:

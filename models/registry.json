@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "default_model": "refineshot_v8_final",
+  "models": [
+    {
+      "id": "refineshot_v8_final",
+      "file": "models/checkpoints/refineshot_v8_final.pth",
+      "role": "final_deployment",
+      "size_bytes": 57253109,
+      "sha256": "DB57A3CC6EA1931C90085F8122D634697790A8248ABE776A93F17741895A9889",
+      "temperature": 0.24127588762141639,
+      "sigma": 2.0,
+      "threshold": 0.19
+    },
+    {
+      "id": "refineshot_standard",
+      "file": "models/checkpoints/refineshot_standard.pth",
+      "role": "standard_comparison",
+      "size_bytes": 57252309,
+      "sha256": "17675F3D42C6C7AC8244A6B814DB2FD13D2B73CF17D8227423021DE91DEE7882"
+    },
+    {
+      "id": "refineshot_heatmap",
+      "file": "models/checkpoints/refineshot_heatmap.pth",
+      "role": "heatmap_comparison",
+      "size_bytes": 57445237,
+      "sha256": "1F41281701A3B248E5E2F702303F9F4E1E91B0B68E94F258C932FFFB8827B267"
+    },
+    {
+      "id": "autoshot_base",
+      "file": "models/checkpoints/autoshot_base.pth",
+      "role": "phase2_initialization",
+      "size_bytes": 57243097,
+      "sha256": "3E85290546CE6D32F4A3581EC2CAE87AEDD2402246A0D46B4D361A330B4B1FA6"
+    }
+  ]
+}

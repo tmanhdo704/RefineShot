@@ -1,0 +1,22 @@
+{
+  "release": "RefineShot Final v8",
+  "training": {
+    "epochs": 20,
+    "loss": "focal",
+    "learning_rate": 0.000007,
+    "weight_decay": 0.0001,
+    "focal_gamma": 2.0,
+    "focal_alpha": 0.6,
+    "manyhot_weight": 0.3,
+    "finetune_scope": "head_only"
+  },
+  "deployment": {
+    "temperature": 0.24127588762141639,
+    "sigma": 2.0,
+    "threshold": 0.19
+  },
+  "checkpoints": {
+    "base": "models/checkpoints/autoshot_base.pth",
+    "final": "models/checkpoints/refineshot_v8_final.pth"
+  }
+}

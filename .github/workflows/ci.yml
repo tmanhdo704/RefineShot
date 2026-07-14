@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "paper/**"]
+  pull_request:
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          # Pinned stack: scipy 1.17.1 needs >=3.11, torch 2.5.1 has no 3.13 wheels.
+          python-version: "3.12"
+          cache: pip
+      # CPU wheel (~190 MB) instead of the CUDA-bundled PyPI wheel (multi-GB).
+      - run: pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -r requirements.txt
+      - run: pip install -e . ruff pytest
+      - run: ruff check .
+      # Artifact/GPU/web tests self-skip on a source-only CPU environment.
+      - run: pytest -ra

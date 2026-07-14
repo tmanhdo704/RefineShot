@@ -1,0 +1,368 @@
+{
+  "best_config": {
+    "name": "g2p0_a0p60_m0p30_lr7e6",
+    "gamma": 2.0,
+    "alpha": 0.6,
+    "manyhot_weight": 0.3,
+    "lr": 7e-06,
+    "weight_decay": 0.0001
+  },
+  "selected_checkpoint_before_threshold_patch": "/kaggle/working/refineshot/focal_sweep_shot_f1_manyhot03/g2p0_a0p60_m0p30_lr7e6/ckpt_final.pth",
+  "final_checkpoint": "models/checkpoints/refineshot_v8_final.pth",
+  "selected_threshold": 0.19,
+  "best_validation_summary": {
+    "config": {
+      "name": "g2p0_a0p60_m0p30_lr7e6",
+      "gamma": 2.0,
+      "alpha": 0.6,
+      "manyhot_weight": 0.3,
+      "lr": 7e-06,
+      "weight_decay": 0.0001
+    },
+    "stage": "final",
+    "epochs": 20,
+    "checkpoint": "/kaggle/working/refineshot/focal_sweep_shot_f1_manyhot03/g2p0_a0p60_m0p30_lr7e6/ckpt_final.pth",
+    "results": "/kaggle/working/refineshot/focal_sweep_shot_f1_manyhot03/g2p0_a0p60_m0p30_lr7e6/results_final.pkl",
+    "eval_cache_dir": "/kaggle/working/refineshot/focal_sweep_shot_f1_manyhot03/g2p0_a0p60_m0p30_lr7e6/eval_cache_final",
+    "temperature": 0.24127588762141639,
+    "sigma": 2.0,
+    "script_deploy_threshold": 0.15,
+    "script_val_temp": {
+      "f1": 0.8419735927727587,
+      "precision": 0.7720147827195106,
+      "recall": 0.9258749808956136,
+      "threshold": 0.15,
+      "n_videos": 200
+    },
+    "script_val_no_temp": {
+      "f1": 0.6866584347621568,
+      "precision": 0.5580084097859327,
+      "recall": 0.8924040959804371,
+      "threshold": 0.2,
+      "n_videos": 200
+    },
+    "selected": {
+      "threshold": 0.19,
+      "score": 0.6721659265460939,
+      "score_parts": {
+        "primary_metric": "shot_f1",
+        "shot_f1": 0.671251719394773,
+        "shot_precision": 0.5622119815668203,
+        "shot_recall": 0.8327645051194539,
+        "clip_f0_5_tiebreak": 0.8327504808532961,
+        "clip_precision_tiebreak": 0.8145667046750285,
+        "clip_recall_floor": 0.5,
+        "clip_penalty": 0.0
+      },
+      "clipshots": {
+        "f1": 0.8616010854816825,
+        "precision": 0.8145667046750285,
+        "recall": 0.9144,
+        "threshold": 0.19,
+        "tp": 5715,
+        "fp": 1301,
+        "fn": 535
+      },
+      "shot": {
+        "f1": 0.671251719394773,
+        "precision": 0.5622119815668203,
+        "recall": 0.8327645051194539,
+        "threshold": 0.19,
+        "tp": 244,
+        "fp": 190,
+        "fn": 49
+      }
+    },
+    "script_deploy_row": {
+      "threshold": 0.15,
+      "score": 0.66151276571375,
+      "score_parts": {
+        "primary_metric": "shot_f1",
+        "shot_f1": 0.660621761658031,
+        "shot_precision": 0.5323590814196242,
+        "shot_recall": 0.8703071672354948,
+        "clip_f0_5_tiebreak": 0.812244555176082,
+        "clip_precision_tiebreak": 0.7875950054288816,
+        "clip_recall_floor": 0.5,
+        "clip_penalty": 0.0
+      },
+      "clipshots": {
+        "f1": 0.8522543692172124,
+        "precision": 0.7875950054288816,
+        "recall": 0.92848,
+        "threshold": 0.15,
+        "tp": 5803,
+        "fp": 1565,
+        "fn": 447
+      },
+      "shot": {
+        "f1": 0.660621761658031,
+        "precision": 0.5323590814196242,
+        "recall": 0.8703071672354948,
+        "threshold": 0.15,
+        "tp": 255,
+        "fp": 224,
+        "fn": 38
+      }
+    },
+    "top_thresholds": [
+      {
+        "threshold": 0.19,
+        "score": 0.6721659265460939,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.671251719394773,
+          "shot_precision": 0.5622119815668203,
+          "shot_recall": 0.8327645051194539,
+          "clip_f0_5_tiebreak": 0.8327504808532961,
+          "clip_precision_tiebreak": 0.8145667046750285,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8616010854816825,
+          "precision": 0.8145667046750285,
+          "recall": 0.9144,
+          "threshold": 0.19,
+          "tp": 5715,
+          "fp": 1301,
+          "fn": 535
+        },
+        "shot": {
+          "f1": 0.671251719394773,
+          "precision": 0.5622119815668203,
+          "recall": 0.8327645051194539,
+          "threshold": 0.19,
+          "tp": 244,
+          "fp": 190,
+          "fn": 49
+        }
+      },
+      {
+        "threshold": 0.18,
+        "score": 0.6693772577091962,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.668470906630582,
+          "shot_precision": 0.5538116591928252,
+          "shot_recall": 0.8430034129692833,
+          "clip_f0_5_tiebreak": 0.8258068227578671,
+          "clip_precision_tiebreak": 0.8054425585636135,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8583601166006429,
+          "precision": 0.8054425585636135,
+          "recall": 0.91872,
+          "threshold": 0.18,
+          "tp": 5742,
+          "fp": 1387,
+          "fn": 508
+        },
+        "shot": {
+          "f1": 0.668470906630582,
+          "precision": 0.5538116591928252,
+          "recall": 0.8430034129692833,
+          "threshold": 0.18,
+          "tp": 247,
+          "fp": 199,
+          "fn": 46
+        }
+      },
+      {
+        "threshold": 0.17,
+        "score": 0.6693492569174313,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.6684491978609627,
+          "shot_precision": 0.5494505494505495,
+          "shot_recall": 0.8532423208191127,
+          "clip_f0_5_tiebreak": 0.8202391118701964,
+          "clip_precision_tiebreak": 0.7981994459833796,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8556792873051225,
+          "precision": 0.7981994459833796,
+          "recall": 0.92208,
+          "threshold": 0.17,
+          "tp": 5763,
+          "fp": 1457,
+          "fn": 487
+        },
+        "shot": {
+          "f1": 0.6684491978609627,
+          "precision": 0.5494505494505495,
+          "recall": 0.8532423208191127,
+          "threshold": 0.17,
+          "tp": 250,
+          "fp": 205,
+          "fn": 43
+        }
+      },
+      {
+        "threshold": 0.15,
+        "score": 0.66151276571375,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.660621761658031,
+          "shot_precision": 0.5323590814196242,
+          "shot_recall": 0.8703071672354948,
+          "clip_f0_5_tiebreak": 0.812244555176082,
+          "clip_precision_tiebreak": 0.7875950054288816,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8522543692172124,
+          "precision": 0.7875950054288816,
+          "recall": 0.92848,
+          "threshold": 0.15,
+          "tp": 5803,
+          "fp": 1565,
+          "fn": 447
+        },
+        "shot": {
+          "f1": 0.660621761658031,
+          "precision": 0.5323590814196242,
+          "recall": 0.8703071672354948,
+          "threshold": 0.15,
+          "tp": 255,
+          "fp": 224,
+          "fn": 38
+        }
+      },
+      {
+        "threshold": 0.16,
+        "score": 0.6605540437071755,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.659658344283837,
+          "shot_precision": 0.5363247863247863,
+          "shot_recall": 0.856655290102389,
+          "clip_f0_5_tiebreak": 0.8163985323172452,
+          "clip_precision_tiebreak": 0.7930089102124743,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8541897379106681,
+          "precision": 0.7930089102124743,
+          "recall": 0.9256,
+          "threshold": 0.16,
+          "tp": 5785,
+          "fp": 1510,
+          "fn": 465
+        },
+        "shot": {
+          "f1": 0.659658344283837,
+          "precision": 0.5363247863247863,
+          "recall": 0.856655290102389,
+          "threshold": 0.16,
+          "tp": 251,
+          "fp": 217,
+          "fn": 42
+        }
+      },
+      {
+        "threshold": 0.12,
+        "score": 0.6599051912923997,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.6590330788804072,
+          "shot_precision": 0.5253549695740365,
+          "shot_recall": 0.8839590443686007,
+          "clip_f0_5_tiebreak": 0.795448365870901,
+          "clip_precision_tiebreak": 0.7666404612159329,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8429621092061663,
+          "precision": 0.7666404612159329,
+          "recall": 0.93616,
+          "threshold": 0.12,
+          "tp": 5851,
+          "fp": 1781,
+          "fn": 399
+        },
+        "shot": {
+          "f1": 0.6590330788804072,
+          "precision": 0.5253549695740365,
+          "recall": 0.8839590443686007,
+          "threshold": 0.12,
+          "tp": 259,
+          "fp": 234,
+          "fn": 34
+        }
+      },
+      {
+        "threshold": 0.14,
+        "score": 0.6598588966460167,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.658974358974359,
+          "shot_precision": 0.5277207392197125,
+          "shot_recall": 0.8771331058020477,
+          "clip_f0_5_tiebreak": 0.8065052363273675,
+          "clip_precision_tiebreak": 0.7803243533038466,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8492451316461235,
+          "precision": 0.7803243533038466,
+          "recall": 0.93152,
+          "threshold": 0.14,
+          "tp": 5822,
+          "fp": 1639,
+          "fn": 428
+        },
+        "shot": {
+          "f1": 0.658974358974359,
+          "precision": 0.5277207392197125,
+          "recall": 0.8771331058020477,
+          "threshold": 0.14,
+          "tp": 257,
+          "fp": 230,
+          "fn": 36
+        }
+      },
+      {
+        "threshold": 0.13,
+        "score": 0.6581675554457184,
+        "score_parts": {
+          "primary_metric": "shot_f1",
+          "shot_f1": 0.6572890025575447,
+          "shot_precision": 0.5255623721881391,
+          "shot_recall": 0.8771331058020477,
+          "clip_f0_5_tiebreak": 0.8011958966481979,
+          "clip_precision_tiebreak": 0.7735699152542372,
+          "clip_recall_floor": 0.5,
+          "clip_penalty": 0.0
+        },
+        "clipshots": {
+          "f1": 0.8465439791334589,
+          "precision": 0.7735699152542372,
+          "recall": 0.93472,
+          "threshold": 0.13,
+          "tp": 5842,
+          "fp": 1710,
+          "fn": 408
+        },
+        "shot": {
+          "f1": 0.6572890025575447,
+          "precision": 0.5255623721881391,
+          "recall": 0.8771331058020477,
+          "threshold": 0.13,
+          "tp": 257,
+          "fp": 232,
+          "fn": 36
+        }
+      }
+    ]
+  },
+  "screen_leaderboard": "/kaggle/working/refineshot/focal_sweep_shot_f1_manyhot03/screen_leaderboard.json"
+}

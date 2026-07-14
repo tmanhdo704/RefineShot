@@ -1,0 +1,48 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Packaging and environments
+*.egg-info/
+build/
+.eggs/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+!*.env.example
+
+# Datasets and generated training artifacts
+data/
+runs/
+output/
+*.pth
+*.pt
+*.pkl
+*.pickle
+*.partial.pkl
+*.pid
+*.log
+*_checkpoints/
+*_cache/
+*.parts/
+logs/
+
+# Versioned model registry (large binaries are stored with Git LFS)
+!models/checkpoints/
+!models/checkpoints/*.pth
+
+# Web runtime and generated frontend files
+app/backend/storage/
+app/frontend/node_modules/
+app/frontend/dist/
+
+# Notebook and editor noise
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

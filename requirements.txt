@@ -1,0 +1,9 @@
+# Pinned to the versions used for the reported runs (Python 3.12).
+# torch is pinned to 2.5.1; install the CUDA build separately if you need GPU,
+# e.g. `pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121`
+numpy==2.2.6
+scipy==1.17.1
+torch==2.5.1
+einops==0.8.2
+ffmpeg-python==0.2.0
+matplotlib==3.10.8

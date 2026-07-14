@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refineshot"
+version = "0.8.0"
+description = "RefineShot final v8: training, evaluation, calibration, and web demo"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "torch",
+    "einops",
+    "ffmpeg-python",
+    "matplotlib",
+]
+
+[project.scripts]
+refineshot-train = "refineshot.train_phase2:main"
+refineshot-eval = "refineshot.eval:main"
+refineshot-calibrate = "refineshot.postprocess_calibration:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "artifacts: needs local artifact bundle (checkpoints/cached logits/datasets); deselect with -m 'not artifacts'",
+    "gpu: needs a CUDA device",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["app/frontend"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = [
+    "E731", # lambda assignment — used intentionally in model code
+    "UP008", # super(Class, self) — legacy TransNetV2 style, harmless
+    "B905", # zip(strict=...) would change behavior on length mismatch; lengths match by construction
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Ported TransNetV2 supernet (upstream legacy code) — lint minimally.
+"src/refineshot/model/*" = ["E711", "E741", "UP", "E501"]
+# Tests legitimately mutate sys.path before importing the package under test.
+"tests/*" = ["E402"]
+"tests/test_web_backend.py" = ["E501"]
+# CLI wrappers may contain long command descriptions.
+"scripts/*" = ["E501"]
+# FastAPI's File(...)/Form(...) defaults are the framework idiom.
+"app/backend/*" = ["B008"]

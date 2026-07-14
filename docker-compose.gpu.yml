@@ -1,0 +1,13 @@
+services:
+  backend:
+    build:
+      dockerfile: app/backend/Dockerfile.gpu
+    environment:
+      REFINESHOT_DEVICE: cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
